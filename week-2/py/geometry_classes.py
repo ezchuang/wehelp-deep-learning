@@ -73,5 +73,3 @@ class UtilFunctions:
     @staticmethod
     def intersect(circle_1: Circle, circle_2: Circle) -> bool:
         return UtilFunctions.get_distance(circle_1.center, circle_2.center) <= (circle_1.radius + circle_2.radius)
-
-
