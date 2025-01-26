@@ -24,7 +24,7 @@ class NNTaskHandler:
         pass
 
     def task_1(self):
-        network = Network(
+        nn = Network(
             weight_matrices = [
                 np.array([[0.5, 0.6], [0.2, -0.6]]),
                 np.array([[0.8], [0.4]])
@@ -35,13 +35,15 @@ class NNTaskHandler:
             ])
         
         inputs_1 = Inputs(np.array([1.5, 0.5]))
-        print(network.forward(inputs_1))
+        outputs = nn.forward(inputs_1)
+        print(outputs)
 
         inputs_2 = Inputs(np.array([0, 1]))
-        print(network.forward(inputs_2))
+        outputs = nn.forward(inputs_2)
+        print(outputs)
     
     def task_2(self):
-        network = Network(
+        nn = Network(
             weight_matrices = [
                 np.array([[0.5, 0.6], [1.5, -0.8]]),
                 np.array([[0.6], [-0.8]]),
@@ -54,10 +56,12 @@ class NNTaskHandler:
             ])
         
         inputs_1 = Inputs(np.array([0.75, 1.25]))
-        print(network.forward(inputs_1))
+        outputs = nn.forward(inputs_1)
+        print(outputs)
 
         inputs_2 = Inputs(np.array([-1, 0.5]))
-        print(network.forward(inputs_2))
+        outputs = nn.forward(inputs_2)
+        print(outputs)
 
 if __name__ == "__main__":
     task_handler = NNTaskHandler()
