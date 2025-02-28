@@ -72,6 +72,7 @@ class NNTaskHandler:
             loss_sum += np.abs(outputs - expects)
         
         avg_loss = loss_sum / len(testing_data)
+        print(f"Average std: {dataset.std}")
         print(f"Average Test Loss (z-score): {avg_loss[0][0]}")
         print(f"Average Test Loss (pound): {(avg_loss * dataset.std)[0][0]}")
         print(f"Average Test Loss (percentage): {(avg_loss * dataset.std / dataset.mean * 100)[0][0]} %")
@@ -174,4 +175,4 @@ class NNTaskHandler:
 if __name__ == "__main__":
     NNTaskHandler.task_1()
     NNTaskHandler.task_2()
-    # NNTaskHandler.task_3()
+    NNTaskHandler.task_3()
