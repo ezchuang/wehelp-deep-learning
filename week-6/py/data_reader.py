@@ -17,7 +17,7 @@ class ReaderHelper():
         return (data - data_mean) / data_std
 
 class GenderHeightWeight():
-    def __init__(self, file_path: str = "./week-6/py/gender-height-weight.csv"):
+    def __init__(self, file_path: str = "./week-6/resource/gender-height-weight.csv"):
         self.raw: list[np.ndarray] = []
         self.data: list[np.ndarray] = []
         self.labels: list[np.ndarray] = []
@@ -88,7 +88,7 @@ class GenderHeightWeight():
     
 
 class Titanic():
-    def __init__(self, file_path: str = "./week-6/py/titanic.csv"):
+    def __init__(self, file_path: str = "./week-6/resource/titanic.csv"):
         self.raw: list[np.ndarray] = []
         self.data: list[np.ndarray] = []
         self.labels: list[np.ndarray] = []

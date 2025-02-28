@@ -12,6 +12,8 @@ class NNTaskHandler:
         print("============== Task 1 ==============")
         nn = Network(
             hidden_weight_matrices = [
+                # np.random.randn(2, 8),
+                # np.random.randn(8, 4),
                 np.random.randn(2, 8) * 0.01,
                 np.random.randn(8, 4) * 0.01,
             ],
@@ -23,6 +25,7 @@ class NNTaskHandler:
                 ActivationFunctions.RELU,
                 ActivationFunctions.LINEAR
             ],
+            # output_weight_matrix = np.random.randn(4, 1),
             output_weight_matrix = np.random.randn(4, 1) * 0.01,
             output_biases_matrix = np.zeros((1, 1)),
             output_activation_function = ActivationFunctions.LINEAR
@@ -30,7 +33,7 @@ class NNTaskHandler:
 
         learning_rate: float = 0.01
         training_size: float = 0.7
-        epochs = 1
+        epochs = 10
 
         dataset = data_reader.GenderHeightWeight()
         training_data = dataset.get_training_data(training_size)
@@ -96,7 +99,7 @@ class NNTaskHandler:
 
         learning_rate: float = 0.01
         training_size: float = 0.8
-        epochs = 1
+        epochs = 100
 
         dataset = data_reader.Titanic()
         training_data = dataset.get_training_data(training_size)
