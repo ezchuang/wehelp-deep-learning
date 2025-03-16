@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 
 .vscode
+/stage-2/crawler_data
+/stage-2/cleaned_data
