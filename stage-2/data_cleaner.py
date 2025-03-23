@@ -14,7 +14,7 @@ def clean_title(title: str) -> str:
         return ""
     return cleaned_lower
 
-def process_csv_file(input_filepath: str, output_filepath: str) -> None:
+def process_csv_file(filename: str, input_filepath: str, output_filepath: str) -> None:
     with open(input_filepath, "r", encoding="utf-8") as in_file, \
          open(output_filepath, "w", newline='', encoding="utf-8") as out_file:
         reader = csv.DictReader(in_file)
@@ -23,7 +23,7 @@ def process_csv_file(input_filepath: str, output_filepath: str) -> None:
             print(f"No fieldnames in CSV file: {input_filepath}")
             return
         
-        output_fieldnames = ["Title"]
+        output_fieldnames = ["Board", "Title"]
         writer = csv.DictWriter(out_file, fieldnames=output_fieldnames)
         writer.writeheader()
         for row in reader:
@@ -32,6 +32,7 @@ def process_csv_file(input_filepath: str, output_filepath: str) -> None:
                 continue
 
             new_row = {
+                "Board": filename,
                 "Title": title
             }
             writer.writerow(new_row)
@@ -42,7 +43,7 @@ def clean_data() -> None:
             input_filepath = os.path.join(INPUT_CSV_DIR, filename)
             output_filepath = os.path.join(OUTPUT_CSV_DIR, f"cleaned_{filename}")
             print(f"Processing {input_filepath} -> {output_filepath}")
-            process_csv_file(input_filepath, output_filepath)
+            process_csv_file(filename.removesuffix(".csv"), input_filepath, output_filepath)
             
     print("Data cleaning complete.")
 
