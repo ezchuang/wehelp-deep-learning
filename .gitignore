@@ -174,3 +174,6 @@ cython_debug/
 /stage-2/crawler_data
 /stage-2/cleaned_data
 /stage-2/tokenized_data
+/stage-2/doc2vec_model
+/stage-2/doc2vec_model_sample
+req.txt

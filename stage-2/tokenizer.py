@@ -39,7 +39,7 @@ STOPWORDS_POS = {
     }
 STOPWORDS_WS = {" ", "\\", "/", "／", "？", "「", "」", "～", "～", "！", "　", "："}
 
-ws_driver  = CkipWordSegmenter(model="bert-base", device=0)
+ws_driver  = CkipWordSegmenter(model="bert-base", device=-1)
 pos_driver = CkipPosTagger(model="bert-base", device=0)
 
 os.makedirs(OUTPUT_CSV_DIR, exist_ok=True)
