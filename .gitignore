@@ -176,4 +176,5 @@ cython_debug/
 /stage-2/tokenized_data
 /stage-2/doc2vec_model_sample
 /stage-2/embedded_data
+/stage-2/doc2vec_model
 req.txt
