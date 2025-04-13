@@ -1,0 +1,138 @@
+2025-04-12 21:08:48 | INFO | SAMPLE_MODE: False
+2025-04-12 21:08:48 | INFO | VECTOR_SIZE: 60
+2025-04-12 21:08:48 | INFO | TRAINING_WINDOW: 2
+2025-04-12 21:08:48 | INFO | TRAINING_EPOCHS: 300
+2025-04-12 21:08:48 | INFO | TRAINING_MIN_COUNT: 2
+2025-04-12 21:08:48 | INFO | TRAINING_WORKERS: 14
+2025-04-12 21:08:48 | INFO | Creating Model
+2025-04-12 21:08:49 | INFO | ============== Start Training ==============
+2025-04-12 21:08:49 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_baseball.csv
+2025-04-12 21:08:49 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:49 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Boy-Girl.csv
+2025-04-12 21:08:49 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:49 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_c_chat.csv
+2025-04-12 21:08:50 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:50 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_hatepolitics.csv
+2025-04-12 21:08:50 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:50 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Lifeismoney.csv
+2025-04-12 21:08:50 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:50 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Military.csv
+2025-04-12 21:08:50 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:50 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_pc_shopping.csv
+2025-04-12 21:08:50 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:50 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_stock.csv
+2025-04-12 21:08:51 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:51 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Tech_Job.csv
+2025-04-12 21:08:51 | INFO | Tokenized Titles Ready
+2025-04-12 21:08:51 | INFO | Start Training
+2025-04-13 00:34:14 | INFO | Saving Model
+2025-04-13 00:34:15 | INFO | ============== Start Evaluating ==============
+2025-04-13 00:34:15 | INFO | Evaluating tokenized_baseball.csv
+2025-04-13 00:34:15 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_baseball.csv
+2025-04-13 00:34:15 | INFO | Tokenized Titles Ready
+2025-04-13 00:34:15 | INFO | Evaluating
+2025-04-13 00:34:15 | INFO | 0/182514
+2025-04-13 00:39:10 | INFO | 20000/182514
+2025-04-13 00:44:00 | INFO | 40000/182514
+2025-04-13 00:48:51 | INFO | 60000/182514
+2025-04-13 00:53:43 | INFO | 80000/182514
+2025-04-13 00:58:32 | INFO | 100000/182514
+2025-04-13 01:03:24 | INFO | 120000/182514
+2025-04-13 01:08:14 | INFO | 140000/182514
+2025-04-13 01:13:04 | INFO | 160000/182514
+2025-04-13 01:18:10 | INFO | 180000/182514
+2025-04-13 01:18:48 | INFO | 182513/182514
+2025-04-13 01:18:48 | INFO | Self Similarity 80.855 %
+2025-04-13 01:18:48 | INFO | Second Self Similarity 83.138 %
+2025-04-13 01:18:48 | INFO | Evaluating tokenized_Boy-Girl.csv
+2025-04-13 01:18:48 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Boy-Girl.csv
+2025-04-13 01:18:48 | INFO | Tokenized Titles Ready
+2025-04-13 01:18:48 | INFO | Evaluating
+2025-04-13 01:18:48 | INFO | 0/56263
+2025-04-13 01:23:41 | INFO | 20000/56263
+2025-04-13 01:28:35 | INFO | 40000/56263
+2025-04-13 01:32:42 | INFO | 56262/56263
+2025-04-13 01:32:42 | INFO | Self Similarity 87.734 %
+2025-04-13 01:32:42 | INFO | Second Self Similarity 90.759 %
+2025-04-13 01:32:42 | INFO | Evaluating tokenized_c_chat.csv
+2025-04-13 01:32:42 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_c_chat.csv
+2025-04-13 01:32:43 | INFO | Tokenized Titles Ready
+2025-04-13 01:32:43 | INFO | Evaluating
+2025-04-13 01:32:43 | INFO | 0/161578
+2025-04-13 01:38:30 | INFO | 20000/161578
+2025-04-13 01:43:46 | INFO | 40000/161578
+2025-04-13 01:49:00 | INFO | 60000/161578
+2025-04-13 01:54:15 | INFO | 80000/161578
+2025-04-13 01:59:28 | INFO | 100000/161578
+2025-04-13 02:04:39 | INFO | 120000/161578
+2025-04-13 02:09:53 | INFO | 140000/161578
+2025-04-13 02:15:06 | INFO | 160000/161578
+2025-04-13 02:15:31 | INFO | 161577/161578
+2025-04-13 02:15:31 | INFO | Self Similarity 90.011 %
+2025-04-13 02:15:31 | INFO | Second Self Similarity 91.950 %
+2025-04-13 02:15:31 | INFO | Evaluating tokenized_hatepolitics.csv
+2025-04-13 02:15:31 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_hatepolitics.csv
+2025-04-13 02:15:31 | INFO | Tokenized Titles Ready
+2025-04-13 02:15:31 | INFO | Evaluating
+2025-04-13 02:15:31 | INFO | 0/62362
+2025-04-13 02:21:00 | INFO | 20000/62362
+2025-04-13 02:26:58 | INFO | 40000/62362
+2025-04-13 02:33:17 | INFO | 60000/62362
+2025-04-13 02:34:00 | INFO | 62361/62362
+2025-04-13 02:34:00 | INFO | Self Similarity 91.862 %
+2025-04-13 02:34:00 | INFO | Second Self Similarity 93.494 %
+2025-04-13 02:34:00 | INFO | Evaluating tokenized_Lifeismoney.csv
+2025-04-13 02:34:00 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Lifeismoney.csv
+2025-04-13 02:34:00 | INFO | Tokenized Titles Ready
+2025-04-13 02:34:00 | INFO | Evaluating
+2025-04-13 02:34:00 | INFO | 0/69195
+2025-04-13 02:40:01 | INFO | 20000/69195
+2025-04-13 02:45:59 | INFO | 40000/69195
+2025-04-13 02:52:00 | INFO | 60000/69195
+2025-04-13 02:54:32 | INFO | 69194/69195
+2025-04-13 02:54:32 | INFO | Self Similarity 81.887 %
+2025-04-13 02:54:32 | INFO | Second Self Similarity 85.279 %
+2025-04-13 02:54:32 | INFO | Evaluating tokenized_Military.csv
+2025-04-13 02:54:32 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Military.csv
+2025-04-13 02:54:32 | INFO | Tokenized Titles Ready
+2025-04-13 02:54:32 | INFO | Evaluating
+2025-04-13 02:54:32 | INFO | 0/36333
+2025-04-13 03:00:45 | INFO | 20000/36333
+2025-04-13 03:05:42 | INFO | 36332/36333
+2025-04-13 03:05:42 | INFO | Self Similarity 90.326 %
+2025-04-13 03:05:42 | INFO | Second Self Similarity 91.421 %
+2025-04-13 03:05:42 | INFO | Evaluating tokenized_pc_shopping.csv
+2025-04-13 03:05:42 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_pc_shopping.csv
+2025-04-13 03:05:42 | INFO | Tokenized Titles Ready
+2025-04-13 03:05:42 | INFO | Evaluating
+2025-04-13 03:05:42 | INFO | 0/70873
+2025-04-13 03:11:13 | INFO | 20000/70873
+2025-04-13 03:17:04 | INFO | 40000/70873
+2025-04-13 03:22:41 | INFO | 60000/70873
+2025-04-13 03:25:59 | INFO | 70872/70873
+2025-04-13 03:25:59 | INFO | Self Similarity 78.737 %
+2025-04-13 03:25:59 | INFO | Second Self Similarity 82.109 %
+2025-04-13 03:25:59 | INFO | Evaluating tokenized_stock.csv
+2025-04-13 03:25:59 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_stock.csv
+2025-04-13 03:26:00 | INFO | Tokenized Titles Ready
+2025-04-13 03:26:00 | INFO | Evaluating
+2025-04-13 03:26:00 | INFO | 0/127304
+2025-04-13 03:31:41 | INFO | 20000/127304
+2025-04-13 12:58:48 | INFO | 40000/127304
+2025-04-13 13:04:26 | INFO | 60000/127304
+2025-04-13 13:10:10 | INFO | 80000/127304
+2025-04-13 13:15:49 | INFO | 100000/127304
+2025-04-13 13:21:01 | INFO | 120000/127304
+2025-04-13 13:22:54 | INFO | 127303/127304
+2025-04-13 13:22:54 | INFO | Self Similarity 77.196 %
+2025-04-13 13:22:54 | INFO | Second Self Similarity 79.949 %
+2025-04-13 13:22:54 | INFO | Evaluating tokenized_Tech_Job.csv
+2025-04-13 13:22:54 | INFO | Loading Tokenized Titles From ./stage-2/tokenized_data\tokenized_Tech_Job.csv
+2025-04-13 13:22:54 | INFO | Tokenized Titles Ready
+2025-04-13 13:22:54 | INFO | Evaluating
+2025-04-13 13:22:54 | INFO | 0/58967
+2025-04-13 13:28:09 | INFO | 20000/58967
+2025-04-13 13:33:15 | INFO | 40000/58967
+2025-04-13 13:37:58 | INFO | 58966/58967
+2025-04-13 13:37:58 | INFO | Self Similarity 86.799 %
+2025-04-13 13:37:58 | INFO | Second Self Similarity 90.924 %

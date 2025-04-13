@@ -1,0 +1,220 @@
+2025-04-13 13:53:44 | INFO | TRAINING_EPOCH: 100
+2025-04-13 13:53:44 | INFO | LEARNING_RATE: 0.001
+2025-04-13 13:53:44 | INFO | NN_HIDDEN_DIM_1: 150
+2025-04-13 13:53:44 | INFO | NN_HIDDEN_DIM_2: 150
+2025-04-13 13:53:44 | INFO | BATCH_SIZE: 100000
+2025-04-13 13:53:44 | INFO | Using device: cuda
+2025-04-13 13:53:45 | INFO | ============== Start Classifying ==============
+2025-04-13 13:53:45 | INFO | Loading tokenized_baseball.csv
+2025-04-13 13:53:45 | INFO | Loading tokenized_Boy-Girl.csv
+2025-04-13 13:53:45 | INFO | Loading tokenized_c_chat.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_hatepolitics.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_Lifeismoney.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_Military.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_pc_shopping.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_stock.csv
+2025-04-13 13:53:46 | INFO | Loading tokenized_Tech_Job.csv
+2025-04-13 13:53:47 | INFO | Label Mapping: {'Boy-Girl': 0, 'Lifeismoney': 1, 'Military': 2, 'Tech_Job': 3, 'baseball': 4, 'c_chat': 5, 'hatepolitics': 6, 'pc_shopping': 7, 'stock': 8}
+2025-04-13 13:53:47 | INFO | Loading Embedded Data
+2025-04-13 13:53:56 | INFO | Embedded data Loaded
+2025-04-13 13:54:06 | INFO | Epoch [1/100]
+2025-04-13 13:54:06 | INFO | Loss: 2.1246, Train Accuracy: 24.16%, Test Accuracy: 28.66%
+2025-04-13 13:54:13 | INFO | Epoch [2/100]
+2025-04-13 13:54:13 | INFO | Loss: 2.0263, Train Accuracy: 29.85%, Test Accuracy: 29.91%
+2025-04-13 13:54:20 | INFO | Epoch [3/100]
+2025-04-13 13:54:20 | INFO | Loss: 1.9595, Train Accuracy: 31.24%, Test Accuracy: 34.30%
+2025-04-13 13:54:28 | INFO | Epoch [4/100]
+2025-04-13 13:54:28 | INFO | Loss: 1.8615, Train Accuracy: 35.67%, Test Accuracy: 37.36%
+2025-04-13 13:54:35 | INFO | Epoch [5/100]
+2025-04-13 13:54:35 | INFO | Loss: 1.7368, Train Accuracy: 38.66%, Test Accuracy: 40.84%
+2025-04-13 13:54:42 | INFO | Epoch [6/100]
+2025-04-13 13:54:42 | INFO | Loss: 1.5923, Train Accuracy: 43.09%, Test Accuracy: 46.74%
+2025-04-13 13:54:49 | INFO | Epoch [7/100]
+2025-04-13 13:54:49 | INFO | Loss: 1.4452, Train Accuracy: 49.37%, Test Accuracy: 52.35%
+2025-04-13 13:54:56 | INFO | Epoch [8/100]
+2025-04-13 13:54:56 | INFO | Loss: 1.3124, Train Accuracy: 54.77%, Test Accuracy: 57.48%
+2025-04-13 13:55:04 | INFO | Epoch [9/100]
+2025-04-13 13:55:04 | INFO | Loss: 1.2081, Train Accuracy: 58.76%, Test Accuracy: 60.56%
+2025-04-13 13:55:11 | INFO | Epoch [10/100]
+2025-04-13 13:55:11 | INFO | Loss: 1.1344, Train Accuracy: 61.32%, Test Accuracy: 62.52%
+2025-04-13 13:55:18 | INFO | Epoch [11/100]
+2025-04-13 13:55:18 | INFO | Loss: 1.0850, Train Accuracy: 63.04%, Test Accuracy: 63.93%
+2025-04-13 13:55:25 | INFO | Epoch [12/100]
+2025-04-13 13:55:25 | INFO | Loss: 1.0525, Train Accuracy: 64.22%, Test Accuracy: 64.86%
+2025-04-13 13:55:32 | INFO | Epoch [13/100]
+2025-04-13 13:55:32 | INFO | Loss: 1.0300, Train Accuracy: 65.03%, Test Accuracy: 65.54%
+2025-04-13 13:55:39 | INFO | Epoch [14/100]
+2025-04-13 13:55:39 | INFO | Loss: 1.0128, Train Accuracy: 65.70%, Test Accuracy: 66.08%
+2025-04-13 13:55:47 | INFO | Epoch [15/100]
+2025-04-13 13:55:47 | INFO | Loss: 0.9987, Train Accuracy: 66.24%, Test Accuracy: 66.57%
+2025-04-13 13:55:54 | INFO | Epoch [16/100]
+2025-04-13 13:55:54 | INFO | Loss: 0.9869, Train Accuracy: 66.71%, Test Accuracy: 66.93%
+2025-04-13 13:56:01 | INFO | Epoch [17/100]
+2025-04-13 13:56:01 | INFO | Loss: 0.9764, Train Accuracy: 67.11%, Test Accuracy: 67.35%
+2025-04-13 13:56:08 | INFO | Epoch [18/100]
+2025-04-13 13:56:08 | INFO | Loss: 0.9665, Train Accuracy: 67.50%, Test Accuracy: 67.69%
+2025-04-13 13:56:15 | INFO | Epoch [19/100]
+2025-04-13 13:56:15 | INFO | Loss: 0.9570, Train Accuracy: 67.84%, Test Accuracy: 68.08%
+2025-04-13 13:56:23 | INFO | Epoch [20/100]
+2025-04-13 13:56:23 | INFO | Loss: 0.9478, Train Accuracy: 68.17%, Test Accuracy: 68.36%
+2025-04-13 13:56:30 | INFO | Epoch [21/100]
+2025-04-13 13:56:30 | INFO | Loss: 0.9389, Train Accuracy: 68.49%, Test Accuracy: 68.62%
+2025-04-13 13:56:37 | INFO | Epoch [22/100]
+2025-04-13 13:56:37 | INFO | Loss: 0.9301, Train Accuracy: 68.82%, Test Accuracy: 68.96%
+2025-04-13 13:56:44 | INFO | Epoch [23/100]
+2025-04-13 13:56:44 | INFO | Loss: 0.9214, Train Accuracy: 69.12%, Test Accuracy: 69.25%
+2025-04-13 13:56:51 | INFO | Epoch [24/100]
+2025-04-13 13:56:51 | INFO | Loss: 0.9128, Train Accuracy: 69.42%, Test Accuracy: 69.57%
+2025-04-13 13:56:58 | INFO | Epoch [25/100]
+2025-04-13 13:56:58 | INFO | Loss: 0.9043, Train Accuracy: 69.74%, Test Accuracy: 69.88%
+2025-04-13 13:57:05 | INFO | Epoch [26/100]
+2025-04-13 13:57:05 | INFO | Loss: 0.8958, Train Accuracy: 70.06%, Test Accuracy: 70.22%
+2025-04-13 13:57:12 | INFO | Epoch [27/100]
+2025-04-13 13:57:12 | INFO | Loss: 0.8876, Train Accuracy: 70.39%, Test Accuracy: 70.48%
+2025-04-13 13:57:20 | INFO | Epoch [28/100]
+2025-04-13 13:57:20 | INFO | Loss: 0.8796, Train Accuracy: 70.69%, Test Accuracy: 70.76%
+2025-04-13 13:57:27 | INFO | Epoch [29/100]
+2025-04-13 13:57:27 | INFO | Loss: 0.8719, Train Accuracy: 70.98%, Test Accuracy: 71.04%
+2025-04-13 13:57:34 | INFO | Epoch [30/100]
+2025-04-13 13:57:34 | INFO | Loss: 0.8644, Train Accuracy: 71.28%, Test Accuracy: 71.28%
+2025-04-13 13:57:41 | INFO | Epoch [31/100]
+2025-04-13 13:57:41 | INFO | Loss: 0.8572, Train Accuracy: 71.54%, Test Accuracy: 71.58%
+2025-04-13 13:57:48 | INFO | Epoch [32/100]
+2025-04-13 13:57:48 | INFO | Loss: 0.8504, Train Accuracy: 71.80%, Test Accuracy: 71.84%
+2025-04-13 13:57:55 | INFO | Epoch [33/100]
+2025-04-13 13:57:55 | INFO | Loss: 0.8438, Train Accuracy: 72.08%, Test Accuracy: 72.11%
+2025-04-13 13:58:03 | INFO | Epoch [34/100]
+2025-04-13 13:58:03 | INFO | Loss: 0.8377, Train Accuracy: 72.33%, Test Accuracy: 72.32%
+2025-04-13 13:58:10 | INFO | Epoch [35/100]
+2025-04-13 13:58:10 | INFO | Loss: 0.8317, Train Accuracy: 72.54%, Test Accuracy: 72.57%
+2025-04-13 13:58:16 | INFO | Epoch [36/100]
+2025-04-13 13:58:16 | INFO | Loss: 0.8261, Train Accuracy: 72.76%, Test Accuracy: 72.80%
+2025-04-13 13:58:23 | INFO | Epoch [37/100]
+2025-04-13 13:58:23 | INFO | Loss: 0.8207, Train Accuracy: 72.95%, Test Accuracy: 72.99%
+2025-04-13 13:58:31 | INFO | Epoch [38/100]
+2025-04-13 13:58:31 | INFO | Loss: 0.8155, Train Accuracy: 73.16%, Test Accuracy: 73.12%
+2025-04-13 13:58:39 | INFO | Epoch [39/100]
+2025-04-13 13:58:39 | INFO | Loss: 0.8105, Train Accuracy: 73.35%, Test Accuracy: 73.31%
+2025-04-13 13:58:46 | INFO | Epoch [40/100]
+2025-04-13 13:58:46 | INFO | Loss: 0.8055, Train Accuracy: 73.54%, Test Accuracy: 73.46%
+2025-04-13 13:58:53 | INFO | Epoch [41/100]
+2025-04-13 13:58:53 | INFO | Loss: 0.8008, Train Accuracy: 73.73%, Test Accuracy: 73.66%
+2025-04-13 13:59:00 | INFO | Epoch [42/100]
+2025-04-13 13:59:00 | INFO | Loss: 0.7961, Train Accuracy: 73.88%, Test Accuracy: 73.84%
+2025-04-13 13:59:06 | INFO | Epoch [43/100]
+2025-04-13 13:59:06 | INFO | Loss: 0.7916, Train Accuracy: 74.04%, Test Accuracy: 74.01%
+2025-04-13 13:59:14 | INFO | Epoch [44/100]
+2025-04-13 13:59:14 | INFO | Loss: 0.7871, Train Accuracy: 74.21%, Test Accuracy: 74.14%
+2025-04-13 13:59:21 | INFO | Epoch [45/100]
+2025-04-13 13:59:21 | INFO | Loss: 0.7828, Train Accuracy: 74.37%, Test Accuracy: 74.28%
+2025-04-13 13:59:29 | INFO | Epoch [46/100]
+2025-04-13 13:59:29 | INFO | Loss: 0.7787, Train Accuracy: 74.52%, Test Accuracy: 74.42%
+2025-04-13 13:59:36 | INFO | Epoch [47/100]
+2025-04-13 13:59:36 | INFO | Loss: 0.7746, Train Accuracy: 74.67%, Test Accuracy: 74.64%
+2025-04-13 13:59:42 | INFO | Epoch [48/100]
+2025-04-13 13:59:42 | INFO | Loss: 0.7704, Train Accuracy: 74.82%, Test Accuracy: 74.77%
+2025-04-13 13:59:49 | INFO | Epoch [49/100]
+2025-04-13 13:59:49 | INFO | Loss: 0.7665, Train Accuracy: 74.96%, Test Accuracy: 74.88%
+2025-04-13 13:59:57 | INFO | Epoch [50/100]
+2025-04-13 13:59:57 | INFO | Loss: 0.7627, Train Accuracy: 75.10%, Test Accuracy: 74.98%
+2025-04-13 14:00:04 | INFO | Epoch [51/100]
+2025-04-13 14:00:04 | INFO | Loss: 0.7590, Train Accuracy: 75.22%, Test Accuracy: 75.14%
+2025-04-13 14:00:11 | INFO | Epoch [52/100]
+2025-04-13 14:00:11 | INFO | Loss: 0.7554, Train Accuracy: 75.35%, Test Accuracy: 75.22%
+2025-04-13 14:00:18 | INFO | Epoch [53/100]
+2025-04-13 14:00:18 | INFO | Loss: 0.7519, Train Accuracy: 75.46%, Test Accuracy: 75.32%
+2025-04-13 14:00:24 | INFO | Epoch [54/100]
+2025-04-13 14:00:24 | INFO | Loss: 0.7483, Train Accuracy: 75.59%, Test Accuracy: 75.48%
+2025-04-13 14:00:31 | INFO | Epoch [55/100]
+2025-04-13 14:00:31 | INFO | Loss: 0.7448, Train Accuracy: 75.70%, Test Accuracy: 75.56%
+2025-04-13 14:00:39 | INFO | Epoch [56/100]
+2025-04-13 14:00:39 | INFO | Loss: 0.7415, Train Accuracy: 75.81%, Test Accuracy: 75.64%
+2025-04-13 14:00:46 | INFO | Epoch [57/100]
+2025-04-13 14:00:46 | INFO | Loss: 0.7384, Train Accuracy: 75.92%, Test Accuracy: 75.75%
+2025-04-13 14:00:53 | INFO | Epoch [58/100]
+2025-04-13 14:00:53 | INFO | Loss: 0.7349, Train Accuracy: 76.02%, Test Accuracy: 75.82%
+2025-04-13 14:01:00 | INFO | Epoch [59/100]
+2025-04-13 14:01:00 | INFO | Loss: 0.7319, Train Accuracy: 76.11%, Test Accuracy: 75.94%
+2025-04-13 14:01:07 | INFO | Epoch [60/100]
+2025-04-13 14:01:07 | INFO | Loss: 0.7288, Train Accuracy: 76.23%, Test Accuracy: 76.05%
+2025-04-13 14:01:14 | INFO | Epoch [61/100]
+2025-04-13 14:01:14 | INFO | Loss: 0.7259, Train Accuracy: 76.33%, Test Accuracy: 76.10%
+2025-04-13 14:01:21 | INFO | Epoch [62/100]
+2025-04-13 14:01:21 | INFO | Loss: 0.7229, Train Accuracy: 76.40%, Test Accuracy: 76.15%
+2025-04-13 14:01:29 | INFO | Epoch [63/100]
+2025-04-13 14:01:29 | INFO | Loss: 0.7201, Train Accuracy: 76.48%, Test Accuracy: 76.26%
+2025-04-13 14:01:36 | INFO | Epoch [64/100]
+2025-04-13 14:01:36 | INFO | Loss: 0.7173, Train Accuracy: 76.60%, Test Accuracy: 76.32%
+2025-04-13 14:01:43 | INFO | Epoch [65/100]
+2025-04-13 14:01:43 | INFO | Loss: 0.7145, Train Accuracy: 76.69%, Test Accuracy: 76.44%
+2025-04-13 14:01:50 | INFO | Epoch [66/100]
+2025-04-13 14:01:50 | INFO | Loss: 0.7118, Train Accuracy: 76.76%, Test Accuracy: 76.53%
+2025-04-13 14:01:57 | INFO | Epoch [67/100]
+2025-04-13 14:01:57 | INFO | Loss: 0.7093, Train Accuracy: 76.85%, Test Accuracy: 76.55%
+2025-04-13 14:02:04 | INFO | Epoch [68/100]
+2025-04-13 14:02:04 | INFO | Loss: 0.7068, Train Accuracy: 76.91%, Test Accuracy: 76.64%
+2025-04-13 14:02:11 | INFO | Epoch [69/100]
+2025-04-13 14:02:11 | INFO | Loss: 0.7043, Train Accuracy: 77.00%, Test Accuracy: 76.72%
+2025-04-13 14:02:19 | INFO | Epoch [70/100]
+2025-04-13 14:02:19 | INFO | Loss: 0.7018, Train Accuracy: 77.08%, Test Accuracy: 76.77%
+2025-04-13 14:02:26 | INFO | Epoch [71/100]
+2025-04-13 14:02:26 | INFO | Loss: 0.6995, Train Accuracy: 77.16%, Test Accuracy: 76.84%
+2025-04-13 14:02:32 | INFO | Epoch [72/100]
+2025-04-13 14:02:32 | INFO | Loss: 0.6971, Train Accuracy: 77.25%, Test Accuracy: 76.90%
+2025-04-13 14:02:40 | INFO | Epoch [73/100]
+2025-04-13 14:02:40 | INFO | Loss: 0.6948, Train Accuracy: 77.31%, Test Accuracy: 76.97%
+2025-04-13 14:02:47 | INFO | Epoch [74/100]
+2025-04-13 14:02:47 | INFO | Loss: 0.6925, Train Accuracy: 77.38%, Test Accuracy: 77.04%
+2025-04-13 14:02:55 | INFO | Epoch [75/100]
+2025-04-13 14:02:55 | INFO | Loss: 0.6905, Train Accuracy: 77.44%, Test Accuracy: 77.12%
+2025-04-13 14:03:02 | INFO | Epoch [76/100]
+2025-04-13 14:03:02 | INFO | Loss: 0.6883, Train Accuracy: 77.50%, Test Accuracy: 77.16%
+2025-04-13 14:03:09 | INFO | Epoch [77/100]
+2025-04-13 14:03:09 | INFO | Loss: 0.6862, Train Accuracy: 77.58%, Test Accuracy: 77.17%
+2025-04-13 14:03:15 | INFO | Epoch [78/100]
+2025-04-13 14:03:15 | INFO | Loss: 0.6841, Train Accuracy: 77.67%, Test Accuracy: 77.28%
+2025-04-13 14:03:23 | INFO | Epoch [79/100]
+2025-04-13 14:03:23 | INFO | Loss: 0.6819, Train Accuracy: 77.72%, Test Accuracy: 77.35%
+2025-04-13 14:03:30 | INFO | Epoch [80/100]
+2025-04-13 14:03:30 | INFO | Loss: 0.6798, Train Accuracy: 77.79%, Test Accuracy: 77.38%
+2025-04-13 14:03:38 | INFO | Epoch [81/100]
+2025-04-13 14:03:38 | INFO | Loss: 0.6777, Train Accuracy: 77.86%, Test Accuracy: 77.44%
+2025-04-13 14:03:45 | INFO | Epoch [82/100]
+2025-04-13 14:03:45 | INFO | Loss: 0.6758, Train Accuracy: 77.93%, Test Accuracy: 77.57%
+2025-04-13 14:03:52 | INFO | Epoch [83/100]
+2025-04-13 14:03:52 | INFO | Loss: 0.6738, Train Accuracy: 78.00%, Test Accuracy: 77.55%
+2025-04-13 14:03:59 | INFO | Epoch [84/100]
+2025-04-13 14:03:59 | INFO | Loss: 0.6721, Train Accuracy: 78.06%, Test Accuracy: 77.61%
+2025-04-13 14:04:06 | INFO | Epoch [85/100]
+2025-04-13 14:04:06 | INFO | Loss: 0.6702, Train Accuracy: 78.13%, Test Accuracy: 77.69%
+2025-04-13 14:04:14 | INFO | Epoch [86/100]
+2025-04-13 14:04:14 | INFO | Loss: 0.6683, Train Accuracy: 78.19%, Test Accuracy: 77.73%
+2025-04-13 14:04:21 | INFO | Epoch [87/100]
+2025-04-13 14:04:21 | INFO | Loss: 0.6665, Train Accuracy: 78.25%, Test Accuracy: 77.76%
+2025-04-13 14:04:28 | INFO | Epoch [88/100]
+2025-04-13 14:04:28 | INFO | Loss: 0.6648, Train Accuracy: 78.32%, Test Accuracy: 77.81%
+2025-04-13 14:04:35 | INFO | Epoch [89/100]
+2025-04-13 14:04:35 | INFO | Loss: 0.6629, Train Accuracy: 78.36%, Test Accuracy: 77.87%
+2025-04-13 14:04:42 | INFO | Epoch [90/100]
+2025-04-13 14:04:42 | INFO | Loss: 0.6612, Train Accuracy: 78.42%, Test Accuracy: 77.90%
+2025-04-13 14:04:50 | INFO | Epoch [91/100]
+2025-04-13 14:04:50 | INFO | Loss: 0.6596, Train Accuracy: 78.48%, Test Accuracy: 77.95%
+2025-04-13 14:04:57 | INFO | Epoch [92/100]
+2025-04-13 14:04:57 | INFO | Loss: 0.6579, Train Accuracy: 78.53%, Test Accuracy: 78.00%
+2025-04-13 14:05:05 | INFO | Epoch [93/100]
+2025-04-13 14:05:05 | INFO | Loss: 0.6561, Train Accuracy: 78.58%, Test Accuracy: 78.05%
+2025-04-13 14:05:12 | INFO | Epoch [94/100]
+2025-04-13 14:05:12 | INFO | Loss: 0.6544, Train Accuracy: 78.63%, Test Accuracy: 78.11%
+2025-04-13 14:05:19 | INFO | Epoch [95/100]
+2025-04-13 14:05:19 | INFO | Loss: 0.6529, Train Accuracy: 78.70%, Test Accuracy: 78.14%
+2025-04-13 14:05:26 | INFO | Epoch [96/100]
+2025-04-13 14:05:26 | INFO | Loss: 0.6514, Train Accuracy: 78.74%, Test Accuracy: 78.22%
+2025-04-13 14:05:33 | INFO | Epoch [97/100]
+2025-04-13 14:05:33 | INFO | Loss: 0.6498, Train Accuracy: 78.78%, Test Accuracy: 78.25%
+2025-04-13 14:05:40 | INFO | Epoch [98/100]
+2025-04-13 14:05:40 | INFO | Loss: 0.6483, Train Accuracy: 78.81%, Test Accuracy: 78.24%
+2025-04-13 14:05:48 | INFO | Epoch [99/100]
+2025-04-13 14:05:48 | INFO | Loss: 0.6468, Train Accuracy: 78.88%, Test Accuracy: 78.30%
+2025-04-13 14:05:55 | INFO | Epoch [100/100]
+2025-04-13 14:05:55 | INFO | Loss: 0.6454, Train Accuracy: 78.90%, Test Accuracy: 78.36%
+2025-04-13 14:05:55 | INFO | Save Classify Model To: ./stage-2/classify_models/classify_model.pth

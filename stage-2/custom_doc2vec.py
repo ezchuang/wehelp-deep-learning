@@ -2,6 +2,9 @@ import os
 import csv
 from typing import List
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+import custom_logger
+from custom_gensim_epoch_logger import EpochLogger
+from tqdm import tqdm
 
 SAMPLE_MODE = False
 
@@ -16,16 +19,26 @@ if SAMPLE_MODE:
 else:
     INPUT_CSV_DIR: str = "./stage-2/tokenized_data"
     OUTPUT_CSV_DIR: str = "./stage-2/doc2vec_model"
-    VECTOR_SIZE = 50
+    VECTOR_SIZE = 100
     TRAINING_WINDOW = 2
-    TRAINING_EPOCHS = 200
+    TRAINING_EPOCHS = 300
     TRAINING_MIN_COUNT = 2
     TRAINING_WORKERS = 4
 
 os.makedirs(OUTPUT_CSV_DIR, exist_ok=True)
 
+LOG_NAME = f"doc2vec_model_{TRAINING_EPOCHS}"
+LOG_PATH = OUTPUT_CSV_DIR
+logger = custom_logger.default_logger(name=LOG_NAME, log_dir=LOG_PATH)
+logger.info(f"SAMPLE_MODE: {SAMPLE_MODE}")
+logger.info(f"VECTOR_SIZE: {VECTOR_SIZE}")
+logger.info(f"TRAINING_WINDOW: {TRAINING_WINDOW}")
+logger.info(f"TRAINING_EPOCHS: {TRAINING_EPOCHS}")
+logger.info(f"TRAINING_MIN_COUNT: {TRAINING_MIN_COUNT}")
+logger.info(f"TRAINING_WORKERS: {TRAINING_WORKERS}")
+
 def load_tokenized_data(input_filepath: str) -> List[TaggedDocument]:
-    print(f"Loading Tokenized Titles From {input_filepath}")
+    logger.info(f"Loading Tokenized Titles From {input_filepath}")
     documents = []
     basename = os.path.basename(input_filepath)
 
@@ -36,7 +49,7 @@ def load_tokenized_data(input_filepath: str) -> List[TaggedDocument]:
             tag = f"{basename}_{i}"
             documents.append(TaggedDocument(words=tokens, tags=[tag]))
 
-    print(f"Tokenized Titles Ready")
+    logger.info(f"Tokenized Titles Ready")
     return documents
 
 def create_model(
@@ -46,7 +59,7 @@ def create_model(
     workers: int = TRAINING_WORKERS,
     epochs: int = TRAINING_EPOCHS
 ) -> Doc2Vec:
-    print(f"Creating Model")
+    logger.info(f"Creating Model")
     return Doc2Vec(
         vector_size=vector_size, 
         window=window,
@@ -54,33 +67,41 @@ def create_model(
         workers=workers, 
         epochs=epochs
     )
-
+ 
 def train_doc2vec(documents: List[TaggedDocument], model: Doc2Vec) -> Doc2Vec:
-    print(f"Start Training")
+    logger.info(f"Start Training")
+    tqdm_bar = tqdm(total=TRAINING_EPOCHS, desc="Training Epochs")
+    epoch_logger = EpochLogger(tqdm_bar)
+
     model.build_vocab(documents)
-    model.train(documents, total_examples=len(documents), epochs=TRAINING_EPOCHS)
+    model.train(documents, 
+                total_examples=len(documents), 
+                epochs=TRAINING_EPOCHS,
+                callbacks=[epoch_logger])
+    
+    tqdm_bar.close()
     return model
 
 def save_trained_model(model: Doc2Vec, output_filepath: str):
-    print(f"Saving Model")
+    logger.info(f"Saving Model")
     model.save(output_filepath)
 
 def eval_model(documents: List[TaggedDocument], model: Doc2Vec):
-    print(f"Evaluating")
+    logger.info(f"Evaluating")
     count_of_self = 0
     count_of_second = 0
     total = len(documents)
 
     for i, doc in enumerate(documents):
-        if SAMPLE_MODE and i % 100 == 0:
-            print(i)
-        if not SAMPLE_MODE and i % 10000 == 0:
-            print(i)
+        if SAMPLE_MODE and (i % 100 == 0 or i == total - 1):
+            logger.info(f"{i}/{total}")
+        if not SAMPLE_MODE and (i % 20000 == 0 or i == total - 1):
+            logger.info(f"{i}/{total}")
 
         inferred_vector = model.infer_vector(documents[i].words)
         top_sims = model.dv.most_similar([inferred_vector], topn=2)
 
-        # print(top_sims[0][0], " ", doc.tags[0])
+        # custom_logger.info(top_sims[0][0], " ", doc.tags[0])
         if top_sims[0][0] == doc.tags[0]:
             count_of_self += 1
             count_of_second += 1
@@ -90,14 +111,14 @@ def eval_model(documents: List[TaggedDocument], model: Doc2Vec):
     self_similarity = count_of_self / total * 100
     second_self_similarity = count_of_second / total * 100
 
-    print(f"Self Similarity {self_similarity:.3f} %")
-    print(f"Second Self Similarity {second_self_similarity:.3f} %")
+    logger.info(f"Self Similarity {self_similarity:.3f} %")
+    logger.info(f"Second Self Similarity {second_self_similarity:.3f} %")
 
 def start_custom_d2v():
     model = create_model()
 
     # training
-    print("============== Start Training ==============")
+    logger.info("============== Start Training ==============")
     documents = []
     for filename in os.listdir(INPUT_CSV_DIR):
         if filename.endswith(".csv"):
@@ -109,10 +130,10 @@ def start_custom_d2v():
     save_trained_model(model, output_filepath)
 
     # evaluating 
-    print("============== Start Evaluating ==============")
+    logger.info("============== Start Evaluating ==============")
     for filename in os.listdir(INPUT_CSV_DIR):
         if filename.endswith(".csv"):
-            print(f"Evaluating {filename}")
+            logger.info(f"Evaluating {filename}")
             input_filepath = os.path.join(INPUT_CSV_DIR, filename)
             documents = load_tokenized_data(input_filepath)
             eval_model(documents, model)
