@@ -7,13 +7,11 @@ import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader, random_split
 from gensim.models.doc2vec import Doc2Vec
 import custom_logger
+from constants import D2V_MODEL_PATH, EMBEDDED_DATA_PATH, CLASSIFY_MODEL_PATH
 
-D2V_MODEL_PATH = "./stage-2/doc2vec_model/custom_d2v_model.bin"
-INPUT_CSV_DIR: str = "./stage-2/tokenized_data"
-EMBEDDED_DATA_PATH = "./stage-2/embedded_data/embedded_data.csv"
-CLASSIFY_MODEL_SAVE_PATH = "./stage-2/classify_models/classify_model.pth"
+INPUT_CSV_DIR: str = "./model_training/tokenized_data"
 
-TRAINING_EPOCHS = 200
+TRAINING_EPOCHS = 100
 LEARNING_RATE = 0.001
 NN_HIDDEN_DIM_1 = 200
 NN_HIDDEN_DIM_2 = 200
@@ -22,7 +20,7 @@ NN_HIDDEN_DIM_4 = 200
 BATCH_SIZE = 100000
 
 LOG_NAME = f"classify_model_{TRAINING_EPOCHS}"
-LOG_PATH = "./stage-2/classify_models"
+LOG_PATH = "./model_training/classify_models"
 logger = custom_logger.default_logger(name=LOG_NAME, log_dir=LOG_PATH)
 logger.info(f"TRAINING_EPOCH: {TRAINING_EPOCHS}")
 logger.info(f"LEARNING_RATE: {LEARNING_RATE}")
@@ -67,7 +65,7 @@ def save_embedded_result(csv_filepath: str, embeddings: List[List[float]]) -> No
     logger.info(f"Embedded Data Saved")
 
 def encode_labels(labels: List[str]) -> Tuple[List[int], dict]:
-    unique_labels = sorted(set(labels))
+    unique_labels = sorted(set(labels), key=lambda x: x.lower())
     label2id = {label: idx for idx, label in enumerate(unique_labels)}
     encoded_labels = [label2id[label] for label in labels]
     logger.info(f"Label Mapping: {label2id}")
@@ -84,7 +82,7 @@ def embed_data(d2v_model: Doc2Vec, all_tokens: List[List[str]]) -> List[List[int
     return embeddings
 
 class Classifier(nn.Module):
-    def __init__(self, input_dim: int, hidden_dim: int, output_dim: int):
+    def __init__(self, input_dim: int, output_dim: int):
         super(Classifier, self).__init__()
         self.relu = nn.LeakyReLU()
         self.fc1 = nn.Linear(input_dim, NN_HIDDEN_DIM_1)
@@ -134,17 +132,16 @@ def start_classify():
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
     input_dim = d2v_model.vector_size
-    hidden_dim = NN_HIDDEN_DIM_1
     output_dim = num_classes
-    model = Classifier(input_dim, hidden_dim, output_dim).to(device)
+    classify_model = Classifier(input_dim, output_dim).to(device)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
+    optimizer = optim.Adam(classify_model.parameters(), lr=LEARNING_RATE)
 
     num_epochs = TRAINING_EPOCHS
     for epoch in range(num_epochs):
         # Training
-        model.train()
+        classify_model.train()
         epoch_loss = 0.0
         total_train = 0
         correct_train = 0
@@ -152,7 +149,7 @@ def start_classify():
             X_batch = X_batch.to(device)
             y_batch = y_batch.to(device)
             optimizer.zero_grad()
-            outputs = model(X_batch)
+            outputs = classify_model(X_batch)
             loss = criterion(outputs, y_batch)
             loss.backward()
             optimizer.step()
@@ -166,14 +163,14 @@ def start_classify():
         train_accuracy = correct_train / total_train
         
         # Evaluating
-        model.eval()
+        classify_model.eval()
         total_test = 0
         correct_test = 0
         with torch.no_grad():
             for X_batch, y_batch in test_loader:
                 X_batch = X_batch.to(device)
                 y_batch = y_batch.to(device)
-                outputs = model(X_batch)
+                outputs = classify_model(X_batch)
                 _, predicted = torch.max(outputs, 1)
                 total_test += y_batch.size(0)
                 correct_test += (predicted == y_batch).sum().item()
@@ -182,9 +179,9 @@ def start_classify():
         logger.info(f"Epoch [{epoch+1}/{TRAINING_EPOCHS}]")
         logger.info(f"Loss: {avg_loss:.4f}, Train Accuracy: {train_accuracy*100:.2f}%, Test Accuracy: {test_accuracy*100:.2f}%")
 
-    os.makedirs(os.path.dirname(CLASSIFY_MODEL_SAVE_PATH), exist_ok=True)
-    # torch.save(model.state_dict(), CLASSIFY_MODEL_SAVE_PATH)
-    logger.info(f"Save Classify Model To: {CLASSIFY_MODEL_SAVE_PATH}")
+    os.makedirs(os.path.dirname(CLASSIFY_MODEL_PATH), exist_ok=True)
+    torch.save(classify_model.state_dict(), CLASSIFY_MODEL_PATH)
+    logger.info(f"Save Classify Model To: {CLASSIFY_MODEL_PATH}")
 
 if __name__ == "__main__":
     start_classify()

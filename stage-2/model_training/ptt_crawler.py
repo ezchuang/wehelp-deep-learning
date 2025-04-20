@@ -6,28 +6,13 @@ import queue
 import csv
 import re
 import requests
-
+from constants import DATA_SOURCE_URL, BOARDS, DATA_SOURCE_COOKIES, CRAWLER_DATA_PATH
 from bs4 import BeautifulSoup
 
-CSV_DIR: str = "./stage-2/crawler_data"
-
-BASE_URL: str = "https://www.ptt.cc"
-COOKIES: dict[str, str] = {"over18": "1"}
-BOARDS: List[str] = [
-    "baseball",
-    "Boy-Girl",
-    "c_chat",
-    "hatepolitics",
-    "Lifeismoney",
-    "Military",
-    "pc_shopping",
-    "stock",
-    "Tech_Job",
-]
 BATCH_SIZE: int = 10
 
 def fetch_index(url: str) -> str:
-    response: requests.Response = requests.get(url, cookies=COOKIES)
+    response: requests.Response = requests.get(url, cookies=DATA_SOURCE_COOKIES)
     response.raise_for_status()
     return response.text
 
@@ -54,7 +39,7 @@ def parse_index(html: str) -> List[Tuple[str, str, str, str]]:
             a_tag = title_div.find("a")
             if a_tag:
                 title = a_tag.get_text(strip=True)
-                link = BASE_URL + a_tag['href']
+                link = DATA_SOURCE_URL + a_tag['href']
             else:
                 continue
         else:
@@ -79,10 +64,10 @@ def writer_thread(csv_filename: str, q: "queue.Queue[Tuple[str, str, str, str]]"
                 continue
 
 def crawl(board: str, target_count: int = 200000) -> None:
-    os.makedirs(CSV_DIR, exist_ok=True)
+    os.makedirs(CRAWLER_DATA_PATH, exist_ok=True)
     
     # Get the latest index page
-    index_url: str = f"{BASE_URL}/bbs/{board}/index.html"
+    index_url: str = f"{DATA_SOURCE_URL}/bbs/{board}/index.html"
     index_html: str = fetch_index(index_url)
     soup: BeautifulSoup = BeautifulSoup(index_html, "html.parser")
     
@@ -99,7 +84,7 @@ def crawl(board: str, target_count: int = 200000) -> None:
     # Writer thread for CSV output
     results_queue: "queue.Queue[Tuple[str, str, str, str]]" = queue.Queue()
     stop_event: threading.Event = threading.Event()
-    csv_filename: str = os.path.join(CSV_DIR, f"{board}.csv")
+    csv_filename: str = os.path.join(CRAWLER_DATA_PATH, f"{board}.csv")
     writer_t = threading.Thread(target=writer_thread, args=(csv_filename, results_queue, stop_event))
     writer_t.start()
 
@@ -115,7 +100,7 @@ def crawl(board: str, target_count: int = 200000) -> None:
                 if current_index <= 0:
                     break
 
-                url: str = f"{BASE_URL}/bbs/{board}/index{current_index}.html"
+                url: str = f"{DATA_SOURCE_URL}/bbs/{board}/index{current_index}.html"
                 futures[executor.submit(fetch_index, url)] = current_index
                 current_index -= 1
 

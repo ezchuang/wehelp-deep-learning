@@ -3,41 +3,20 @@ import csv
 from typing import List
 import pandas as pd
 from ckip_transformers.nlp import CkipWordSegmenter, CkipPosTagger
+from constants import STOPWORDS_POS, STOPWORDS_WS
 
-INPUT_CSV_DIR: str = "./stage-2/cleaned_data"
-OUTPUT_CSV_DIR: str = "./stage-2/tokenized_data"
-# INPUT_CSV_DIR: str = "./stage-2/cleaned_data_sample"
-# OUTPUT_CSV_DIR: str = "./stage-2/tokenized_data_sample"
+SAMPLE_MODE = False
+
+if SAMPLE_MODE:
+    INPUT_CSV_DIR: str = "./model_training/cleaned_data_sample"
+    OUTPUT_CSV_DIR: str = "./model_training/tokenized_data_sample"
+else:
+    INPUT_CSV_DIR: str = "./model_training/cleaned_data"
+    OUTPUT_CSV_DIR: str = "./model_training/tokenized_data"
 
 BATCH_SIZE = 20000
 DRIVER_BATCH_SIZE = 5000
 # ref: https://github.com/ckiplab/ckip-transformers/blob/master/docs/main/tag/pos.csv
-STOPWORDS_POS = {
-    "Caa", # 對等連接詞
-    "Cab", # 連接詞，如：等等
-    "Cba", # 連接詞，如：的話
-    "Cbb", # 關聯連接詞
-    "D", # 副詞
-    "I", # 感嘆詞
-    "Neu", #數詞定詞
-    "Nf", #量詞
-    "P", # 介詞
-    "T", # 語助詞
-    "COLONCATEGORY",  # 冒號
-    "COMMACATEGORY",  # 逗號
-    "DASHCATEGORY",  # 破折號
-    "DOTCATEGORY",  # 點號
-    "ETCCATEGORY",  # 刪節號
-    "EXCLAMATIONCATEGORY",  # 驚嘆號
-    "PARENTHESISCATEGORY",  # 括號
-    "PAUSECATEGORY",  # 頓號
-    "PERIODCATEGORY",  # 句號
-    "QUESTIONCATEGORY",  # 問號
-    "SEMICOLONCATEGORY",  # 分號
-    "SPCHANGECATEGORY",  # 雙直線
-    "WHITESPACE",  # 空白
-    }
-STOPWORDS_WS = {" ", "\\", "/", "／", "？", "「", "」", "～", "～", "！", "　", "："}
 
 ws_driver  = CkipWordSegmenter(model="bert-base", device=-1)
 pos_driver = CkipPosTagger(model="bert-base", device=0)

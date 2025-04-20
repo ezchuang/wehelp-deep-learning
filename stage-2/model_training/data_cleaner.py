@@ -2,8 +2,8 @@ import os
 import csv
 from typing import List
 
-INPUT_CSV_DIR: str = "./stage-2/crawler_data"
-OUTPUT_CSV_DIR: str = "./stage-2/cleaned_data"
+INPUT_CSV_DIR: str = "./model_training/crawler_data"
+OUTPUT_CSV_DIR: str = "./model_training/cleaned_data"
 
 os.makedirs(OUTPUT_CSV_DIR, exist_ok=True)
 

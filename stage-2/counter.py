@@ -20,18 +20,18 @@ def count_csv_rows(folder_path: str, skip_header: bool = True) -> int:
     return total_rows
 
 if __name__ == "__main__":
-    folder = "stage-2\\crawler_data"
+    folder = "stage-2\\model_training\\crawler_data"
     total = count_csv_rows(folder, skip_header=True)
     print(f"Total crawled rows: {total}")
 
-    folder = "stage-2\\cleaned_data"
+    folder = "stage-2\\model_training\\cleaned_data"
     total = count_csv_rows(folder, skip_header=True)
     print(f"Total cleaned rows: {total}")
 
-    folder = "stage-2\\tokenized_data"
+    folder = "stage-2\\model_training\\tokenized_data"
     total = count_csv_rows(folder, skip_header=False)
     print(f"Total tokenized rows: {total}")
 
-    folder = "stage-2\\embedded_data"
+    folder = "stage-2\\model_training\\embedded_data"
     total = count_csv_rows(folder, skip_header=False)
     print(f"Total embedded rows: {total}")
