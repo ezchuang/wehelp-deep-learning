@@ -19,7 +19,7 @@ DRIVER_BATCH_SIZE = 5000
 # ref: https://github.com/ckiplab/ckip-transformers/blob/master/docs/main/tag/pos.csv
 
 ws_driver  = CkipWordSegmenter(model="bert-base", device=-1)
-pos_driver = CkipPosTagger(model="bert-base", device=0)
+pos_driver = CkipPosTagger(model="bert-base", device=-1)
 
 os.makedirs(OUTPUT_CSV_DIR, exist_ok=True)
 
