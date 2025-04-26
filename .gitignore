@@ -179,5 +179,4 @@ embedded_data
 tokenized_data
 *.bin
 *.bin.dv.vectors.npy
-req.txt
 *.log
