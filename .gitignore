@@ -173,10 +173,11 @@ cython_debug/
 .vscode
 crawler_data
 cleaned_data
-# /doc2vec_model_sample
-# /doc2vec_model
+# **/doc2vec_model_sample
+# **/doc2vec_model
 embedded_data
 tokenized_data
 *.bin
 *.bin.dv.vectors.npy
 *.log
+**/handwriting
