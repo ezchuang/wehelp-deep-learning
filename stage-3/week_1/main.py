@@ -74,7 +74,7 @@ class CharCNN(nn.Module):
         return self.classifier(x)
 
 
-def get_training_transform() -> transforms:
+def get_training_transform() -> transforms.Compose:
     # define transform pipeline
     return transforms.Compose([
         transforms.RandomResizedCrop((28, 28)),
@@ -84,7 +84,7 @@ def get_training_transform() -> transforms:
         transforms.Normalize((0.5,), (0.5,)) # → [-1,1], will improve the sensitivity of tensors
     ])
 
-def get_testing_transform() -> transforms:
+def get_testing_transform() -> transforms.Compose:
     # define transform pipeline
     return transforms.Compose([
         # transforms.RandomResizedCrop((28, 28)),
@@ -95,7 +95,7 @@ def get_testing_transform() -> transforms:
     ])
 
 def load_train_data(
-        transform: transforms,
+        transform: transforms.Compose,
         root_path: str,
         directory_filename: str
     ) -> Tuple:
@@ -118,7 +118,7 @@ def load_train_data(
     return train_dataset, train_loader
 
 def load_test_data(
-        transform: transforms,
+        transform: transforms.Compose,
         root_path: str,
         test_folder_dir: str
     ) -> Tuple:
@@ -157,7 +157,7 @@ def train_and_test(
             imgs, labels = imgs.to(device), labels.to(device)
             optimizer.zero_grad()
             outputs = model(imgs)
-            loss    = criterion(outputs, labels)
+            loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
