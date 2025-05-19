@@ -181,3 +181,4 @@ tokenized_data
 *.bin.dv.vectors.npy
 *.log
 **/handwriting
+**/r-cnn-data
