@@ -182,3 +182,4 @@ tokenized_data
 *.log
 **/handwriting
 **/r-cnn-data
+**/data/outputs/model.pth
